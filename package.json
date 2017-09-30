@@ -1,0 +1,12 @@
+{
+  "name": "web-scrap-facebook-post",
+  "version": "1.0.1",
+  "description": "Scrapping lithuanian names of the day ant posting them to facebook",
+  "main": "server.js",
+  "author": "Tautvydas Derzinskas",
+  "dependencies": {
+    "request": "2.83.0",
+    "cheerio": "1.0.0-rc.2",
+    "iconv-lite": "0.4.19"
+  }
+}
