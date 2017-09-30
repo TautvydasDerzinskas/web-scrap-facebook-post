@@ -5,7 +5,8 @@
   "main": "server.js",
   "author": "Tautvydas Derzinskas",
   "scripts": {
-    "test": "./node_modules/.bin/mocha app/**/*.spec.js"
+    "test": "./node_modules/.bin/mocha app/**/*.spec.js",
+    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha app/**/*.spec.js --report lcovonly -- -R spec && codecov"
   },
   "dependencies": {
     "request": "2.83.0",
