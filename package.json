@@ -10,9 +10,10 @@
     "lint": "standard"
   },
   "dependencies": {
-    "request": "2.83.0",
     "cheerio": "1.0.0-rc.2",
-    "iconv-lite": "0.4.19"
+    "iconv-lite": "0.4.19",
+    "jimp": "0.2.28",
+    "request": "2.83.0"
   },
   "devDependencies": {
     "mocha": "4.0.0",

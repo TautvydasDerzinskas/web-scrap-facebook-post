@@ -5,7 +5,7 @@ const request = require('request')
 const constants = require('../constants.js')
 
 class Facebook {
-  post (message, callback) {
+  postMessage (message, callback) {
     const url = `${constants.facebookGraphApiUrl}${constants.facebookPageId}/feed`
     const body = `message=${encodeURIComponent(message)}&access_token=${constants.facebookAccessToken}`
 

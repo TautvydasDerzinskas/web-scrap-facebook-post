@@ -7,15 +7,19 @@ const constants = require('./app/constants.js')
 // Services
 const facebook = require('./app/services/facebook.service.js')
 const formatter = require('./app/services/formatter.service.js')
+const graphicsService = require('./app/services/graphics.service.js')
 
 class WebScrapperFacebookPoster {
-  constructor () { this.scrap() }
+  constructor () {
+    this.scrap()
+  }
 
   scrap () {
     request({ url: constants.urlToScrap, encoding: null }, (error, response, html) => {
       if (!error) {
         const cleanData = formatter.stripHtml(html)
-        facebook.post(`STT: ${cleanData.vardadieniai.join(',')}`)
+        graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`)
+        facebook.postMessage(`${cleanData.vardadieniai.join(', ')}`)
       }
     })
   }
