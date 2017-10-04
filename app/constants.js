@@ -11,9 +11,13 @@ class Constants {
     return process.env.WSFP_FACEBOOK_ACCESS_TOKEN
   };
 
-  get facebookGraphApiUrl () {
-    return 'https://graph.facebook.com/v2.0/'
+  get facebookGraphUrl () {
+    return 'graph.facebook.com'
   };
+
+  get facebookApiVersion () {
+    return 'v2.0'
+  }
 }
 
 module.exports = new Constants()
