@@ -18,14 +18,17 @@ class WebScrapperFacebookPoster {
     request({ url: constants.urlToScrap, encoding: null }, (error, response, html) => {
       if (!error) {
         const cleanData = formatter.stripHtml(html)
-        graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`)
-        facebook.postImage(
-          `${cleanData.vardadieniai.join(', ')}`,
-          'names_day_output.png'
-        ).then(() => {
-          console.log('Names day post with image posted!')
+        graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(() => {
+          facebook.postImage(
+            `${cleanData.vardadieniai.join(', ')}`,
+            'names_day_output.png'
+          ).then(() => {
+            console.log('Names day post with image posted!')
+          }, (error) => {
+            console.log('Error while posting names day image', error)
+          })
         }, (error) => {
-          console.log('Error while posting names day image', error)
+          console.log('Could not generate names day image', error)
         })
       }
     })
