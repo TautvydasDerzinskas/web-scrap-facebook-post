@@ -20,7 +20,7 @@ class WebScrapperFacebookPoster {
         const cleanData = formatter.stripHtml(html)
         graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(() => {
           facebook.postImage(
-            `${cleanData.vardadieniai.join(', ')}`,
+            `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y)`,
             'names_day_output.png'
           ).then(() => {
             console.log('Names day post with image posted!')

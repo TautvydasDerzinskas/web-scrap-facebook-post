@@ -12,7 +12,7 @@ This application may serve you as example of how to do certain things... Be awar
 - ~~Runing scrap/post task as cron job~~ 🔨
 - ~~Scrapping data from multiple sources~~ 🔨
 - ~~Posting data to multiple facebook pages~~ 🔨
-- ~~Implementing different variantions of data presenting images~~ 🔨
+- Implementing different variantions of data presenting images ✅
 
 ## How to use it? ##
 - Clone the repository
