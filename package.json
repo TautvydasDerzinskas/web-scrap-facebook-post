@@ -5,6 +5,7 @@
   "main": "server.js",
   "author": "Tautvydas Derzinskas",
   "scripts": {
+    "start": "node server.js",
     "test": "./node_modules/.bin/mocha app/**/*.spec.js",
     "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha app/**/*.spec.js --report lcovonly -- -R spec && codecov",
     "lint": "standard"
