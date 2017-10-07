@@ -21,6 +21,10 @@ class Constants {
   get namesdayUrl () {
     return 'http://www.day.lt'
   };
+
+  get jokesUrl () {
+    return 'http://www.anekdotai.lt'
+  }
 }
 
 module.exports = new Constants()

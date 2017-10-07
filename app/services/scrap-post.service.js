@@ -29,6 +29,35 @@ class WebScrapperFacebookPoster {
       }
     })
   }
+
+  jokes () {
+    request({ url: constants.jokesUrl, encoding: null }, (error, response, html) => {
+      if (!error) {
+        const maxPage = formatter.extractJokesMaxPage(html)
+        const randomPage = Math.floor(Math.random() * maxPage) + 1
+
+        request({ url: `${constants.jokesUrl}/${randomPage}`, encoding: null }, (error, response, html) => {
+          if (!error) {
+            const jokes = formatter.extractJokes(html)
+            const randomJoke = Math.floor(Math.random() * jokes.length)
+
+            graphicsService.generateJokeImage(jokes[randomJoke]).then(() => {
+              facebook.postImage(
+                `Nuotaikai pagerinti :)`,
+                'jokes_output.png'
+              ).then(() => {
+                console.log('Jokes post with image posted!')
+              }, (error) => {
+                console.log('Error while posting jokes image', error)
+              })
+            }, (error) => {
+              console.log('Could not generate jokes image', error)
+            })
+          }
+        })
+      }
+    })
+  }
 }
 
 module.exports = new WebScrapperFacebookPoster()

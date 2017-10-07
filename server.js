@@ -9,3 +9,12 @@ const namesDayCronJob = cronJobService.addChronJob({
   job: scrapPostService.namesdays.bind(scrapPostService)
 })
 namesDayCronJob.start()
+
+const jokesCronJob = cronJobService.addChronJob({
+  description: 'Joke scrap & post',
+  timezone: 'Europe/Riga',
+  days: [0, 1, 2, 3, 4, 5, 6],
+  times: ['09:00', '15:00', '19:00'],
+  job: scrapPostService.jokes.bind(scrapPostService)
+})
+jokesCronJob.start()

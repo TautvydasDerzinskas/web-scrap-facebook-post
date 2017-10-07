@@ -40,6 +40,45 @@ class GraphicsService {
       })
     })
   }
+
+  get randomJokesImage () {
+    const variations = [
+      { image: '04_background', font: 'white_24', x: 190, y: 180, width: 610 },
+      { image: '05_background', font: 'dark_cyan_24', x: 190, y: 180, width: 610 }
+    ]
+
+    return variations[Math.floor(Math.random() * variations.length)]
+  }
+
+  generateJokeImage (imageText) {
+    return new Promise((resolve, reject) => {
+      const variation = this.randomJokesImage
+
+      jimp.read(`./app/images/${variation.image}.png`, (error, image) => {
+        if (!error) {
+          jimp.loadFont(`./app/fonts/${variation.font}.fnt`).then(font => {
+            image.print(
+              font,
+              variation.x,
+              variation.y,
+              imageText.replace(/\n/g, ' '),
+              variation.width
+            )
+
+            image.write('./app/images/jokes_output.png', (error) => {
+              if (error) {
+                reject(error)
+              } else {
+                resolve({ success: true })
+              }
+            })
+          })
+        } else {
+          reject(error)
+        }
+      })
+    })
+  }
 }
 
 module.exports = new GraphicsService()
