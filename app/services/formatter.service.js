@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 const iconv = require('iconv-lite')
 
 class ExtractGoodInfo {
-  stripHtml (body) {
+  extractnamesDay (body) {
     body = iconv.decode(body, 'windows-1257')
     const $ = cheerio.load(body)
     const extractedData = {};

@@ -1,8 +1,4 @@
 class Constants {
-  get urlToScrap () {
-    return 'http://www.day.lt'
-  };
-
   get facebookPageId () {
     return process.env.WSFP_FACEBOOK_PAGE_ID
   };
@@ -18,6 +14,13 @@ class Constants {
   get facebookApiVersion () {
     return 'v2.0'
   }
+
+  /*
+  * Pages used to scrap information
+  */
+  get namesdayUrl () {
+    return 'http://www.day.lt'
+  };
 }
 
 module.exports = new Constants()

@@ -8,6 +8,7 @@ class CronJobTask {
 
   start () {
     this.cronJobService._startChronJob(this.cronJob)
+    console.log(`<${this.cronJob.description}> is running`)
   }
 
   stop () {
@@ -35,7 +36,7 @@ class CronJobService {
   }
 
   checkChronJobs () {
-    console.log('Performing chron job check')
+    console.log('Running cron sheadule check')
     const currentDate = new Date()
     global.WSCF_CHRON_JOBS.running.forEach(task => {
       const taskTimezoneDate = task.timezone ? moment.tz(currentDate, task.timezone) : moment.tz(currentDate)
