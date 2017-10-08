@@ -14,10 +14,10 @@ class WebScrapperFacebookPoster {
     request({ url: constants.namesdayUrl, encoding: null }, (error, response, html) => {
       if (!error) {
         const cleanData = formatter.extractnamesDay(html)
-        graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(() => {
+        graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(image => {
           facebook.postImage(
             `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y)`,
-            'names_day_output.png'
+            image
           ).then(() => {
             console.log('Names day post with image posted!')
           }, (error) => {
@@ -41,10 +41,10 @@ class WebScrapperFacebookPoster {
             const jokes = formatter.extractJokes(html)
             const randomJoke = Math.floor(Math.random() * jokes.length)
 
-            graphicsService.generateJokeImage(jokes[randomJoke]).then(() => {
+            graphicsService.generateJokeImage(jokes[randomJoke]).then(image => {
               facebook.postImage(
-                `Nuotaikai pagerinti :)`,
-                'jokes_output.png'
+                `Nuotaikai pagerinti 🌞`,
+                image
               ).then(() => {
                 console.log('Jokes post with image posted!')
               }, (error) => {

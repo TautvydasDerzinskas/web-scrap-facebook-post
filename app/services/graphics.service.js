@@ -26,11 +26,12 @@ class GraphicsService {
               variation.width
             )
 
-            image.write('./app/images/names_day_output.png', (error) => {
+            const outputImageName = 'names_day_output.png'
+            image.write(`./app/images/${outputImageName}`, (error) => {
               if (error) {
                 reject(error)
               } else {
-                resolve({ success: true })
+                resolve(outputImageName)
               }
             })
           })
@@ -65,11 +66,12 @@ class GraphicsService {
               variation.width
             )
 
-            image.write('./app/images/jokes_output.png', (error) => {
+            const outputImageName = 'jokes_output.png'
+            image.write(`./app/images/${outputImageName}`, (error) => {
               if (error) {
                 reject(error)
               } else {
-                resolve({ success: true })
+                resolve(outputImageName)
               }
             })
           })
