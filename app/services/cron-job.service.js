@@ -21,7 +21,8 @@ class CronJobService {
     if (!global.WSCF_CHRON_JOBS) {
       global.WSCF_CHRON_JOBS = {
         available: [],
-        running: []
+        running: [],
+        cycles: 0
       }
 
       setInterval(this.checkChronJobs.bind(this), 60000)
@@ -36,7 +37,8 @@ class CronJobService {
   }
 
   checkChronJobs () {
-    console.log('Running cron sheadule check')
+    global.WSCF_CHRON_JOBS.cycles++
+    console.log(`<Cycle #${global.WSCF_CHRON_JOBS.cycles}> Running cron tasks check`)
     const currentDate = new Date()
     global.WSCF_CHRON_JOBS.running.forEach(task => {
       const taskTimezoneDate = task.timezone ? moment.tz(currentDate, task.timezone) : moment.tz(currentDate)
