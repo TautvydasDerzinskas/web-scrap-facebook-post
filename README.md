@@ -10,7 +10,7 @@ This application may serve you as example of how to do certain things... Be awar
 - Generating images using scrapped data ✅
 - Posting images to a facebook page as ✅
 - Runing scrap/post task as cron job ✅
-- ~~Scrapping data from multiple sources~~ 🔨
+- Scrapping data from multiple sources ✅
 - ~~Posting data to multiple facebook pages~~ 🔨
 - Implementing different variantions of data presenting images ✅
 
@@ -18,7 +18,7 @@ This application may serve you as example of how to do certain things... Be awar
 - Clone the repository
 - Inside your local directory run `npm install` to install required dependencies
 - Set these environment variables with your own data:
-  1. `WSFP_FACEBOOK_ACCESS_TOKEN` - your Facebook access token required for posting things to your facebook pages (How to get my Facebook access token?)
+  1. `WSFP_FACEBOOK_ACCESS_TOKEN` - your Facebook access token required for posting things to your facebook pages ([How to get my Facebook access token?](https://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token))
   2. `WSFP_FACEBOOK_PAGE_ID` - your Facebook page id, so application would know where to post scrapped data
 - Modify `app/constants.js` file `urlToScrap` getter with your own website from which you would like to scrap data
 - Modify `app/services/formatter.service.js` to update data extraction and formatting logic to fit your own source page
