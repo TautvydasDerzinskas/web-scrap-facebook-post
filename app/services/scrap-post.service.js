@@ -30,6 +30,25 @@ class WebScrapperFacebookPoster {
     })
   }
 
+  weatherAndCelebrations () {
+    request({ url: constants.namesdayUrl, encoding: null }, (error, response, html) => {
+      if (!error) {
+        const cleanData = formatter.extractnamesDay(html)
+        let celebrationsText = ''
+        if (cleanData.sventes && cleanData.sventes.length > 0) {
+          celebrationsText = ` 🌍 Ar žinojote, kad šiandien yra "${cleanData.sventes.join('", "')}"?`
+        }
+        facebook.postMessage(
+          `🌤️ Šiandieną Lietuvoje ${cleanData.orai[0].split('/').join('dieną ir')} naktį.${celebrationsText}`
+        ).then(() => {
+          console.log('Weather & celebrations information message posted!')
+        }, (error) => {
+          console.log('Error while posting weather & celebrations message!', error)
+        })
+      }
+    })
+  }
+
   jokes () {
     request({ url: constants.jokesUrl, encoding: null }, (error, response, html) => {
       if (!error) {

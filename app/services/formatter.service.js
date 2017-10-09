@@ -8,16 +8,19 @@ class ExtractGoodInfo {
     const $ = cheerio.load(body)
     const extractedData = {};
 
-    ['vardadieniai', 'sventes'].forEach(className => {
+    ['.vardadieniai', '.sventes', '#orai'].forEach(selector => {
+      const className = selector.substring(1)
+
       if (!extractedData[className]) {
         extractedData[className] = []
       }
 
-      $(`.${className}`).filter(function () {
+      $(selector).filter(function () {
         const data = $(this)
         data.children().map((i, element) => {
           if (element.type === 'tag' && element.name === 'a') {
-            extractedData[className].push(element.children[0].data)
+            const value = element.children[0].children == null ? element.children[0].data : element.children[0].children[0].data
+            extractedData[className].push(value)
           }
         })
       })
