@@ -16,7 +16,7 @@ class WebScrapperFacebookPoster {
         const cleanData = formatter.extractnamesDay(html)
         graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(image => {
           facebook.postImage(
-            `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y)`,
+            `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y) #${cleanData.vardadieniai.join(' #')}`,
             image
           ).then(() => {
             console.log('Names day post with image posted!')
@@ -62,7 +62,7 @@ class WebScrapperFacebookPoster {
 
             graphicsService.generateJokeImage(jokes[randomJoke]).then(image => {
               facebook.postImage(
-                `Nuotaikai pagerinti 🌞`,
+                `Nuotaikai pagerinti 🌞 #Anekdotas #Humoras #Juokelis`,
                 image
               ).then(() => {
                 console.log('Jokes post with image posted!')
