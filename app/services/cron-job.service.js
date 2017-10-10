@@ -41,7 +41,7 @@ class CronJobService {
     console.log(`<Cycle #${global.WSCF_CHRON_JOBS.cycles}> Running cron tasks check`)
     const currentDate = new Date()
     global.WSCF_CHRON_JOBS.running.forEach(task => {
-      const taskTimezoneDate = task.timezone ? moment.tz(currentDate, task.timezone) : moment.tz(currentDate)
+      const taskTimezoneDate = moment.tz(currentDate, task.timezone)
       const currentTime = taskTimezoneDate.format('HH:mm')
 
       if (task.days.indexOf(parseInt(taskTimezoneDate.day()) >= 0)) {
