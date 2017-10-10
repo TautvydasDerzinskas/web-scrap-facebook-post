@@ -36,10 +36,10 @@ class WebScrapperFacebookPoster {
         const cleanData = formatter.extractnamesDay(html)
         let celebrationsText = ''
         if (cleanData.sventes && cleanData.sventes.length > 0) {
-          celebrationsText = ` 🌍 Ar žinojote, kad šiandien yra "${cleanData.sventes.join('", "')}"?`
+          celebrationsText = ` 🌍 Ar žinojote, kad ši diena yra minima kaip: ${cleanData.sventes.join(', ')}?`
         }
         facebook.postMessage(
-          `🌤️ Šiandieną Lietuvoje ${cleanData.orai[0].split('/').join('dieną ir')} naktį.${celebrationsText}`
+          `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split(',').join(' (dieną/naktį),')}.${celebrationsText}`
         ).then(() => {
           console.log('Weather & celebrations information message posted!')
         }, (error) => {
