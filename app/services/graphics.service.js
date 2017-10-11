@@ -5,7 +5,7 @@ class GraphicsService {
     const variations = [
       { image: '01_background', font: 'font', x: 260, y: 440, width: 500 },
       { image: '02_background', font: 'red_48', x: 260, y: 410, width: 500 },
-      { image: '03_background', font: 'white_56', x: 65, y: 610, width: 600 }
+      { image: '03_background', font: 'white_56', x: 65, y: 570, width: 600 }
     ]
 
     return variations[Math.floor(Math.random() * variations.length)]
