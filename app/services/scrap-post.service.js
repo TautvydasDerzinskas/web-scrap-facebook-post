@@ -39,7 +39,7 @@ class WebScrapperFacebookPoster {
           celebrationsText = ` 🌍 Ar žinojote, kad ši diena yra minima kaip: ${cleanData.sventes.join(', ')}?`
         }
         facebook.postMessage(
-          `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split(',').join(' (dieną/naktį),')}.${celebrationsText}`
+          `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
         ).then(() => {
           console.log('Weather & celebrations information message posted!')
         }, (error) => {
