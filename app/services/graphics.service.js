@@ -45,7 +45,8 @@ class GraphicsService {
   get randomJokesImage () {
     const variations = [
       { image: '04_background', font: 'white_24', x: 190, y: 180, width: 610 },
-      { image: '05_background', font: 'dark_cyan_24', x: 190, y: 180, width: 610 }
+      { image: '05_background', font: 'dark_cyan_24', x: 190, y: 180, width: 610 },
+      { image: '06_background', font: 'dark_cyan_24', x: 100, y: 100, width: 750 }
     ]
 
     return variations[Math.floor(Math.random() * variations.length)]
