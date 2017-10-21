@@ -1,5 +1,6 @@
 // Local modules
 const request = require('request')
+const dynamicSettings = require('yargs').argv
 
 // Constants
 const constants = require('../constants.js')
@@ -15,14 +16,18 @@ class WebScrapperFacebookPoster {
       if (!error) {
         const cleanData = formatter.extractnamesDay(html)
         graphicsService.generateNamesDayImage(`${cleanData.vardadieniai.join(', ')}`).then(image => {
-          facebook.postImage(
-            `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y) #${cleanData.vardadieniai.join(' #')}`,
-            image
-          ).then(() => {
-            console.log('Names day post with image posted!')
-          }, (error) => {
-            console.log('Error while posting names day image', error)
-          })
+          if (dynamicSettings.env === 'PROD') {
+            facebook.postImage(
+              `Šiandien vardadienį švenčia: ${cleanData.vardadieniai.join(', ')}! Sveikiname! (y) #${cleanData.vardadieniai.join(' #')}`,
+              image
+            ).then(() => {
+              console.log('Names day post with image posted!')
+            }, (error) => {
+              console.log('Error while posting names day image', error)
+            })
+          } else {
+            console.log('Names day image generated')
+          }
         }, (error) => {
           console.log('Could not generate names day image', error)
         })
@@ -38,13 +43,16 @@ class WebScrapperFacebookPoster {
         if (cleanData.sventes && cleanData.sventes.length > 0) {
           celebrationsText = ` 🌍 Ar žinojote, kad ši diena yra minima kaip: ${cleanData.sventes.join(', ')}?`
         }
-        facebook.postMessage(
-          `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
-        ).then(() => {
-          console.log('Weather & celebrations information message posted!')
-        }, (error) => {
-          console.log('Error while posting weather & celebrations message!', error)
-        })
+        celebrationsText = `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
+        if (dynamicSettings.env === 'PROD') {
+          facebook.postMessage(celebrationsText).then(() => {
+            console.log('Weather & celebrations information message posted!')
+          }, (error) => {
+            console.log('Error while posting weather & celebrations message!', error)
+          })
+        } else {
+          console.log('Weather & celebrations text generated:', celebrationsText)
+        }
       }
     })
   }
@@ -61,14 +69,18 @@ class WebScrapperFacebookPoster {
             const randomJoke = Math.floor(Math.random() * jokes.length)
 
             graphicsService.generateJokeImage(jokes[randomJoke]).then(image => {
-              facebook.postImage(
-                `Nuotaikai pagerinti 🌞 #Anekdotas #Humoras #Juokelis`,
-                image
-              ).then(() => {
-                console.log('Jokes post with image posted!')
-              }, (error) => {
-                console.log('Error while posting jokes image', error)
-              })
+              if (dynamicSettings.env === 'PROD') {
+                facebook.postImage(
+                  `Nuotaikai pagerinti 🌞 #Anekdotas #Humoras #Juokelis`,
+                  image
+                ).then(() => {
+                  console.log('Jokes post with image posted!')
+                }, (error) => {
+                  console.log('Error while posting jokes image', error)
+                })
+              } else {
+                console.log('Joke image generated', randomJoke)
+              }
             }, (error) => {
               console.log('Could not generate jokes image', error)
             })

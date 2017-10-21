@@ -5,7 +5,8 @@
   "main": "server.js",
   "author": "Tautvydas Derzinskas",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js --env PROD",
+    "dev": "node server.js --env DEV",
     "test": "./node_modules/.bin/mocha app/**/*.spec.js",
     "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha app/**/*.spec.js --report lcovonly -- -R spec && codecov",
     "lint": "standard"
@@ -20,9 +21,10 @@
   "devDependencies": {
     "cz-conventional-changelog": "2.0.0",
     "mocha": "4.0.1",
-    "mock-require": "^2.0.2",
-    "standard": "^10.0.3",
-    "unit.js": "2.0.0"
+    "mock-require": "2.0.2",
+    "standard": "10.0.3",
+    "unit.js": "2.0.0",
+    "yargs": "9.0.1"
   },
   "standard": {
     "globals": [
