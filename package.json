@@ -17,7 +17,7 @@
     "jimp": "0.2.28",
     "request": "2.83.0",
     "moment-timezone": "0.5.13",
-    "yargs": "9.0.1"
+    "yargs": "10.0.3"
   },
   "devDependencies": {
     "cz-conventional-changelog": "2.0.0",
