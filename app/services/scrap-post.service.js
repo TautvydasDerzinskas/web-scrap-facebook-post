@@ -43,7 +43,10 @@ class WebScrapperFacebookPoster {
         if (cleanData.sventes && cleanData.sventes.length > 0) {
           celebrationsText = ` 🌍 Ar žinojote, kad ši diena yra minima kaip: ${cleanData.sventes.join(', ')}?`
         }
-        celebrationsText = `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
+
+        if (cleanData.orai && cleanData.orai.length > 0) {
+          celebrationsText = `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
+        }
         if (dynamicSettings.env === 'PROD') {
           facebook.postMessage(celebrationsText).then(() => {
             console.log('Weather & celebrations information message posted!')
