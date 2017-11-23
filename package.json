@@ -4,6 +4,7 @@
   "description": "Scrapping lithuanian names of the day ant posting them to facebook",
   "main": "server.js",
   "author": "Tautvydas Derzinskas",
+  "repository": "https://github.com/SlimDogs/web-scrap-facebook-post.git",
   "scripts": {
     "start": "node server.js --env PROD",
     "dev": "node server.js --env DEV",
