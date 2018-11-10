@@ -29,6 +29,22 @@ class ExtractGoodInfo {
     return extractedData
   }
 
+  extractnamesDayAlternative (body) {
+    body = iconv.decode(body, 'utf8')
+    const $ = cheerio.load(body)
+    const extractedData = {}
+
+    extractedData.vardadieniai = $('.sheet-day-name-days').text().trim().split(' ')
+    extractedData.sventes = []
+
+    const celebrationElements = $('strong')
+    for (let i = 0; i < celebrationElements.length; i += 1) {
+      extractedData.sventes.push(celebrationElements[i].children[0].data)
+    }
+
+    return extractedData
+  }
+
   extractJokesMaxPage (body) {
     const $ = cheerio.load(body)
     const pages = $('.pagination').children('a')
