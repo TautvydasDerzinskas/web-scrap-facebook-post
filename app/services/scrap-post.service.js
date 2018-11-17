@@ -73,7 +73,7 @@ class WebScrapperFacebookPoster {
     }
 
     if (cleanData.orai && cleanData.orai.length > 0) {
-      celebrationsText = `🌤️ Šios dienos temperatūra Lietuvoje bus maždaug - ${cleanData.orai[0].split('/').join('~')}.${celebrationsText}`
+      celebrationsText = `Šios dienos temperatūra Lietuvoje bus apie ${cleanData.orai[0]} (🌞/🌚).${celebrationsText}`
     }
     if (dynamicSettings.env === 'PROD') {
       facebook.postMessage(celebrationsText).then(() => {
