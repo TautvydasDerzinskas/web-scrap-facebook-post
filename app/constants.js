@@ -25,6 +25,10 @@ class Constants {
   get jokesUrl () {
     return 'http://www.anekdotai.lt'
   }
+
+  get namesdayAlternativeUrl () {
+    return 'https://www.kalendorius.today'
+  }
 }
 
 module.exports = new Constants()
