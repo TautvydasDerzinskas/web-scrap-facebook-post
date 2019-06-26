@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
-    "iconv-lite": "0.4.20",
+    "iconv-lite": "0.5.0",
     "jimp": "0.2.28",
     "request": "2.84.0",
     "moment-timezone": "0.5.15",
