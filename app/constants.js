@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 class Constants {
   get facebookPageId () {
     return process.env.WSFP_FACEBOOK_PAGE_ID

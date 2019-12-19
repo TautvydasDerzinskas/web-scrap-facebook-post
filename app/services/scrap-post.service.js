@@ -100,7 +100,7 @@ class WebScrapperFacebookPoster {
             graphicsService.generateJokeImage(jokes[randomJoke]).then(image => {
               if (dynamicSettings.env === 'PROD') {
                 facebook.postImage(
-                  `Nuotaikai pagerinti 🌞 #Anekdotas #Humoras #Juokelis`,
+                  'Nuotaikai pagerinti 🌞 #Anekdotas #Humoras #Juokelis',
                   image
                 ).then(() => {
                   console.log('Jokes post with image posted!')

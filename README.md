@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="#" target="_blank"><img src="https://travis-ci.org/SlimDogs/web-scrap-facebook-post.svg?branch=master" alt="Latest CI build status" title="Latest CI build status"></a>
+  <a href="#" target="_blank"><img src="https://travis-ci.com/TautvydasDerzinskas/web-scrap-facebook-post.svg?branch=master" alt="Latest CI build status" title="Latest CI build status"></a>
   <a href="https://codecov.io/gh/SlimDogs/web-scrap-facebook-post" target="_blank"><img src="https://codecov.io/gh/SlimDogs/web-scrap-facebook-post/branch/master/graph/badge.svg" alt="Code coverage" title="Code coverage"></a>
-  <a href="https://greenkeeper.io" target="_blank"><img src="https://badges.greenkeeper.io/SlimDogs/web-scrap-facebook-post.svg" alt="Greenkeeper" title="Greenkeeper"></a>
+  <a href="https://greenkeeper.io" target="_blank"><img src="https://badges.greenkeeper.io/TautvydasDerzinskas/web-scrap-facebook-post.svg" alt="Greenkeeper" title="Greenkeeper"></a>
   <a href="https://standardjs.com" target="_blank"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide" title="Standard - JavaScript Style Guide"></a>
   <a href="http://commitizen.github.io/cz-cli" target="_blank"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly" title="Commitizen friendly"></a>
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" title="MIT License"></a>
@@ -41,6 +41,12 @@ This application may serve you as example of how to do certain things... Be awar
 - Set these environment variables with your own data:
   1. `WSFP_FACEBOOK_ACCESS_TOKEN` - your Facebook access token required for posting things to your facebook pages ([How to get my Facebook access token?](https://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token))
   2. `WSFP_FACEBOOK_PAGE_ID` - your Facebook page id, so application would know where to post scrapped data
+
+  You can do that by creating `.env` file in projects root directory & populating it like this:
+  ```
+  WSFP_FACEBOOK_PAGE_ID=<value>
+  WSFP_FACEBOOK_ACCESS_TOKEN=<value>
+  ```
 - Modify `app/constants.js` file `urlToScrap` getter with your own website from which you would like to scrap data
 - Modify `app/services/formatter.service.js` to update data extraction and formatting logic to fit your own source page
 - Modify `app/services/graphics.service.js` to update the image generation logic
