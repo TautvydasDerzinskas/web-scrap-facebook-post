@@ -12,7 +12,7 @@
     "post:namesday": "node post.js --type=NAMESDAY --env=PROD",
     "post:joke": "node post.js --type=JOKE --env=PROD",
     "test": "./node_modules/.bin/mocha app/**/*.spec.js",
-    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha app/**/*.spec.js --report lcovonly -- -R spec && codecov",
+    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha app/**/*.spec.js --report lcovonly -- -R spec",
     "lint": "standard"
   },
   "dependencies": {
