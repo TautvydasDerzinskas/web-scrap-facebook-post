@@ -21,7 +21,7 @@
     "iconv-lite": "0.5.1",
     "jimp": "0.9.3",
     "moment-timezone": "0.5.27",
-    "request": "2.88.0",
+    "request": "2.88.2",
     "yargs": "15.0.2"
   },
   "devDependencies": {
