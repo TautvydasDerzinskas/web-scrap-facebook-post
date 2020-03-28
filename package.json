@@ -19,7 +19,7 @@
     "cheerio": "1.0.0-rc.3",
     "dotenv": "8.2.0",
     "iconv-lite": "0.5.1",
-    "jimp": "0.9.3",
+    "jimp": "0.9.8",
     "moment-timezone": "0.5.27",
     "request": "2.88.0",
     "yargs": "15.0.2"
